@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 
 
@@ -13,7 +14,9 @@ class Movies extends React.Component {
         {this.props.movieData.map(movie => {
           return (
             <Card style={{ width: '18rem' }}>
-              <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
+              <Link to="/selectedmovie" className="nav-link" onClick={() => {this.props.handleSelectedMovie(movie)}}>
+                <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
+              </Link>
               <Card.Body>
                 <Card.Title>
                   {movie.movie}
@@ -27,7 +30,7 @@ class Movies extends React.Component {
           )
         }
         )}
-        
+
       </>
     )
   }
