@@ -24,17 +24,24 @@ class Home extends React.Component {
     try {
       let url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`
       console.log(url);
-      // let url = `https://api.themoviedb.org/3/movie/popular?api_key=657e3c5bf7cede69dd3283c3d78e1d03&language=en-US&page=1`
 
       let movieData = await axios.get(url);
-      console.log(movieData.data.results);
+      console.log(movieData.data);
 
       this.setState({
-        movieData: movieData.data.results,
+        movieData: movieData.data,
       });
     } catch (error) {
       console.log(error.response)
 
+    }
+  }
+
+  getTopMovies = async () => {
+    try {
+      
+    } catch (error) {
+      console.log(error.message)
     }
   }
 
@@ -57,8 +64,8 @@ class Home extends React.Component {
             <input type='text' onInput={this.handleInput} />
             <button type='submit'>Search</button>
           </label>
-
         </form>
+        
         <h1>This is the home page</h1>
         <Movies movieData={this.state.movieData} />
       </>
