@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 
+
 class SelectedMovie extends React.Component {
 
   render() {
@@ -19,12 +20,6 @@ class SelectedMovie extends React.Component {
             </Card.Text>
           </Card.Body>
         </Card>
-
-
-
-        {/* <h1>{this.props.selectedMovie.movie}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500/${this.props.selectedMovie.poster}`} alt={this.props.selectedMovie.movie} />
-        <p>{this.props.selectedMovie.description}</p> */}
 
       </>
     )

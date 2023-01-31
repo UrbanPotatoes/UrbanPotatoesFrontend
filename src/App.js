@@ -98,6 +98,7 @@ class App extends React.Component {
               exact path="/selectedmovie"
               element={<SelectedMovie 
               selectedMovie={this.state.selectedMovie}
+              
               />}
             >
             </Route>
