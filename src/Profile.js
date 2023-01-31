@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
+import "./profile.css";
 
 
 class Profile extends React.Component {
@@ -25,8 +26,8 @@ class Profile extends React.Component {
 
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
           <Row>
-            <Col sm={4}>
-              <ListGroup>
+            {/* <Col sm={4}> */}
+              <ListGroup horizontal>
                 <ListGroup.Item action href="#link1">
                   Favorite Movies
                 </ListGroup.Item>
@@ -37,7 +38,7 @@ class Profile extends React.Component {
                   Watch Later
                 </ListGroup.Item>
               </ListGroup>
-            </Col>
+            {/* </Col> */}
             <Col sm={8}>
               <Tab.Content>
                 <Tab.Pane eventKey="#link1">
