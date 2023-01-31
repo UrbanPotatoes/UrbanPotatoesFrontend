@@ -1,5 +1,5 @@
-Card {
-
+.nav-link {
+  color: aliceblue
 }
 
 .App {
@@ -36,6 +36,7 @@ Card {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
