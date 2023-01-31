@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import "./header.css";
 
 
 
@@ -14,7 +15,7 @@ class Header extends React.Component {
           <Navbar.Brand>Urban Potatoes</Navbar.Brand>
           <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
           <NavItem><Link to="/about" className="nav-link">About</Link></NavItem>
-          <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem>
+          <NavItem id='profile'><Link to="/profile" className="nav-link">Profile</Link></NavItem>
         </Navbar>
       </>
     )
