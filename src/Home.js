@@ -1,5 +1,7 @@
 import React from 'react';
 import Movies from './Movies';
+import NowPlaying from './NowPlaying';
+import PopularMovies from './PopularMovies';
 
 
 
@@ -18,7 +20,18 @@ class Home extends React.Component {
           </label>
         </form>
         
-        <h1>This is the home page</h1>
+        <h2>Now Playing</h2>
+
+        <NowPlaying 
+        nowPlaying={this.props.nowPlaying}
+        handleSelectedMovie={this.props.handleSelectedMovie}
+        />
+        <h2>Popular Movies</h2>
+        <PopularMovies 
+        popularMovies={this.props.popularMovies}
+        handleSelectedMovie={this.props.handleSelectedMovie}
+        />
+
         <Movies 
         movieData={this.props.movieData} 
         handleSelectedMovie={this.props.handleSelectedMovie}
