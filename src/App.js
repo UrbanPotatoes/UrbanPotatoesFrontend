@@ -28,6 +28,7 @@ class App extends React.Component {
       user: [],
       nowPlaying: [],
       popularMovies: [],
+      movieDataFromDB: [],
       selectedMovie: {}
     }
   }
@@ -92,11 +93,27 @@ class App extends React.Component {
     }
   }
 
+  postMovie = async (movieObj) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/movies/${movieObj.movieId}`
+      let createdMovie = await axios.post(url, movieObj);
+      this.setState({
+        movieDataFromDB: createdMovie.data
+      })
+
+    } catch (error) {
+      console.log(error.message);
+
+    }
+  }
+
   handleSelectedMovie = (movie) => {
 
-    this.setState({
-      selectedMovie: movie
-    })
+    this.postMovie(movie);
+
+    // this.setState({
+    //   selectedMovie: movie
+    // })
 
   }
 
@@ -145,6 +162,7 @@ class App extends React.Component {
               exact path="/selectedmovie"
               element={<SelectedMovie 
               selectedMovie={this.state.selectedMovie}
+              movieDataFromDB={this.state.movieDataFromDB}
               
               />}
             >
