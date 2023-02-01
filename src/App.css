@@ -68,7 +68,10 @@ button {
   border: none;
   padding: 10px 20px;
 }
-
+.movieSliders {
+  width: 30%
+  
+}
 /* Hex: #B99C98
 RGB: (185, 156, 152)
 

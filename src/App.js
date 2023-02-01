@@ -26,6 +26,8 @@ class App extends React.Component {
       movieData: [],
       comments: [],
       user: [],
+      nowPlaying: [],
+      popularMovies: [],
       selectedMovie: {}
     }
   }
@@ -52,6 +54,44 @@ class App extends React.Component {
     }
   }
 
+  getNowPlaying = async () => {
+    console.log('got the movies');
+
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/getNow`
+      console.log(url);
+
+      let movieData = await axios.get(url);
+      console.log(movieData.data);
+
+      this.setState({
+        nowPlaying: movieData.data,
+      });
+    } catch (error) {
+      console.log(error.response)
+
+    }
+  }
+
+  getPopularMovies = async () => {
+    console.log('got the movies');
+
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/getPopular`
+      console.log(url);
+
+      let movieData = await axios.get(url);
+      console.log(movieData.data);
+
+      this.setState({
+        popularMovies: movieData.data,
+      });
+    } catch (error) {
+      console.log(error.response)
+
+    }
+  }
+
   handleSelectedMovie = (movie) => {
 
     this.setState({
@@ -64,6 +104,11 @@ class App extends React.Component {
     this.setState({
       movie: e.target.value
     })
+  }
+
+  componentDidMount() {
+    this.getNowPlaying();
+    this.getPopularMovies();
   }
 
 
@@ -81,6 +126,8 @@ class App extends React.Component {
               handleInput={this.handleInput}
               handleSelectedMovie={this.handleSelectedMovie}
               movieData={this.state.movieData}
+              nowPlaying={this.state.nowPlaying}
+              popularMovies={this.state.popularMovies}
               />}
             >
             </Route>
