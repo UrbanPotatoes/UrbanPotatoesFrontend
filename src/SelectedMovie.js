@@ -19,9 +19,11 @@ class SelectedMovie extends React.Component {
             <Card.Text>
               {this.props.movieDataFromDB.description}
             </Card.Text>
+
             <Comments 
             movieDataFromDB={this.props.movieDataFromDB}
             />
+
           </Card.Body>
         </Card>
 

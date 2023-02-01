@@ -2,7 +2,7 @@ export const getComments = async () => {
   return [
     {
       id: "1",
-      body: "First comment",
+      body: "So happy i saw this at the theatre",
       username: "Joseph",
       userId: "1",
       parentId: null,
@@ -10,7 +10,7 @@ export const getComments = async () => {
     },
     {
       id: "2",
-      body: "Second comment",
+      body: "Why do they always use the same actors",
       username: "Tre",
       userId: "2",
       parentId: null,
@@ -18,7 +18,7 @@ export const getComments = async () => {
     },
     {
       id: "3",
-      body: "First comment first child",
+      body: "Complete waste of 10$",
       username: "Marlon",
       userId: "2",
       parentId: "1",
@@ -26,7 +26,7 @@ export const getComments = async () => {
     },
     {
       id: "4",
-      body: "Second comment second child",
+      body: "Like did the guy behind me really need to kick my chair the entire time, otherwise 9 out of 10",
       username: "Yen",
       userId: "2",
       parentId: "2",
@@ -34,8 +34,8 @@ export const getComments = async () => {
     },
     {
       id: "5",
-      body: "Second comment second child",
-      username: "Dutch",
+      body: "Well I probably will never get those 2 hours back",
+      username: "",
       userId: "2",
       parentId: "2",
       createdAt: "2021-08-16T23:00:33.010+02:00",

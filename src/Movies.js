@@ -24,6 +24,7 @@ class Movies extends React.Component {
                 <Button variant="outline-light">❤️</Button>
                 <Button variant="outline-light">👀</Button>
                 <Button variant="outline-light">📝</Button>
+
               </Card.Body>
             </Card>
           )
