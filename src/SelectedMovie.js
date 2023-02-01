@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Comments from './Comments/Comments';
 
 
 
@@ -18,6 +19,7 @@ class SelectedMovie extends React.Component {
             <Card.Text>
               {this.props.selectedMovie.description}
             </Card.Text>
+            <Comments />
           </Card.Body>
         </Card>
 

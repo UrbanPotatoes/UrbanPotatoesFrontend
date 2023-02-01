@@ -1,6 +1,9 @@
 .navbar-brand{
   margin-left: 15px;
 }
+.logo {
+  max-width: 50%;
+}
 
 #profile{
   margin-right: 30px;
