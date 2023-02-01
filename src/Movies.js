@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import Comments from './Comments/Comments';
 
 
 
@@ -25,6 +26,7 @@ class Movies extends React.Component {
                 <Button variant="outline-light">❤️</Button>
                 <Button variant="outline-light">👀</Button>
                 <Button variant="outline-light">📝</Button>
+                <Comments />
               </Card.Body>
             </Card>
           )
