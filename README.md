@@ -1,6 +1,14 @@
 # Urban Potatoes
 
+## Netflix meets Urban Dictionary meets Rotten Tomatoes no critic snobbery real reviews from real everyday film lovers like YOU
+
 ## Members
+
+- Joseph Davitt <https://github.com/j-davitt>
+- Diontré Sanders <https://github.com/houseofjavascript>
+- Yen Xiong Yuan <https://github.com/yenxiongyuan>
+- Marlon Angulo Jr. <https://github.com/junior033>
+- Dutch Foy <https://github.com/jdutchfoy>
 
 ## Project Board
 
