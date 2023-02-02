@@ -9,7 +9,7 @@ import CommentForm from './CommentForm'
 
 
 
-const Comments = ({currentUserId, movieDataFromDB}) => {
+const Comments = ({currentUserId, movieDataFromDB, sendUpdateComments}) => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null)
   // {type: "replying", id: '1'}
@@ -59,7 +59,7 @@ const Comments = ({currentUserId, movieDataFromDB}) => {
     <div className="comments">
       <h3 className='comments-title'>Comments</h3>
       <div className='comment-form-title'>Write Comment</div>
-      <CommentForm submitLabel="Post" handleSubmit={addComment}/>
+      <CommentForm submitLabel="Post" handleSubmit={addComment} sendUpdateComments={sendUpdateComments}/>
       <div className="comments-container">
         {rootComments.map((rootComment) => (
           <Comment 
@@ -68,6 +68,7 @@ const Comments = ({currentUserId, movieDataFromDB}) => {
             replies={getReplies(rootComment.id)}
             currentUserId={currentUserId}
             deleteComment={deleteComment}
+            sendUpdateComment={sendUpdateComments}
             updateComment={updateComment}
             activeComment={activeComment}
             setActiveComment={setActiveComment}

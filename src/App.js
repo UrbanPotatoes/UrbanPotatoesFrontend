@@ -14,9 +14,9 @@ import Profile from './Profile';
 import SelectedMovie from './SelectedMovie';
 import axios from 'axios';
 
-import Login from './Login';
-import Logout from './Logout';
-import Profileauth from './Profileauth';
+// import Login from './Login';
+// import Logout from './Logout';
+// import Profileauth from './Profileauth';
 import { withAuth0 } from "@auth0/auth0-react";
 
 import SearchResults from './SearchResults';
@@ -67,7 +67,23 @@ class App extends React.Component {
     }
   }
 
-
+  updateComments = async (comment) => {
+    console.log(comment);
+    let newMovieObject ={...this.state.movieDataFromDB};
+    newMovieObject.comment.push(comment)
+    console.log(newMovieObject);
+    try {
+      // let newMovieObject ={...this.state.selectedMovie,comment:[...this.state.selectedMovie.comment,comment] }
+      console.log('newmovieObect',newMovieObject)
+      let url = `${process.env.REACT_APP_SERVER}/movies/${this.state.movieDataFromDB._id}`
+      let updatedMovie = await axios.put(url, newMovieObject)
+      this.setState ({
+        selectedMovie: updatedMovie.data
+      })
+    }catch(error){
+      console.log(error.message)
+    }
+  }
 
 
   resetMovies = () => {
@@ -285,9 +301,9 @@ class App extends React.Component {
             resetMovies={this.resetMovies}
             handleProfile={this.handleProfile}
           />
-          <Login />
+          {/* <Login />
           <Logout />
-          <Profileauth />
+          <Profileauth /> */}
 
           <Routes>
             <Route
@@ -325,6 +341,7 @@ class App extends React.Component {
               element={<SelectedMovie
                 selectedMovie={this.state.selectedMovie}
                 movieDataFromDB={this.state.movieDataFromDB}
+                sendUpdateComments={this.updateComments}
 
               />}
             >

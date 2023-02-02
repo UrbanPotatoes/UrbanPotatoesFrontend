@@ -2,7 +2,7 @@
 import CommentForm from "./CommentForm"
 
 
-const Comment = ({ comment, replies, currentUserId, deleteComment, updateComment, addComment, activeComment, setActiveComment, parentId = null, }) => {
+const Comment = ({ comment, replies, currentUserId, deleteComment, updateComment, addComment, activeComment, sendUpdateComment, setActiveComment, parentId = null, }) => {
   const thirtySecs = 3000000;
   const timePassed = new Date() - new Date(comment.createdAt) > thirtySecs;
   const canReply = Boolean(currentUserId);
