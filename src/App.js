@@ -41,8 +41,32 @@ class App extends React.Component {
       popularMovies: [],
       movieDataFromDB: [],
       selectedMovie: {},
+      reviews:[],
+    }
+
     };
+
+  
+
+
+  getMovieReviews = async () => {
+  
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/moviereview`
+      console.log(url);
+
+      let movieReviewData = await axios.get(url);
+      console.log('moviereviews',movieReviewData.data);
+
+      this.setState({
+        reviews: movieReviewData.data,
+      });
+    } catch (error) {
+      console.log(error.response)
+
+    }
   }
+
 
 
 
@@ -204,12 +228,15 @@ class App extends React.Component {
   };
 
   handleSelectedMovie = (movie) => {
-    this.postMovie(movie);
 
-    // this.setState({
-    //   selectedMovie: movie
-    // })
-  };
+    let myMovie = this.postMovie(movie);
+    console.log(myMovie);
+
+    this.setState({
+      movieDataFromDB: movie
+    })
+
+  }
 
   handleInput = (e) => {
     this.setState({
@@ -251,6 +278,7 @@ class App extends React.Component {
     console.log(this.state.user)
     return (
       <>
+        <div className='menu'>
         <Router>
 
           <Header
@@ -264,16 +292,19 @@ class App extends React.Component {
           <Routes>
             <Route
               exact path="/"
-              element={<Home
-                getMovieData={this.getMovieData}
-                handleInput={this.handleInput}
-                handleSelectedMovie={this.handleSelectedMovie}
-                movieData={this.state.movieData}
-                nowPlaying={this.state.nowPlaying}
-                popularMovies={this.state.popularMovies}
-                handleUserFavorite={this.handleUserFavorite}
-                handleUserWatched={this.handleUserWatched}
-                handleUserWatchlist={this.handleUserWatchlist}
+              element={<Home 
+              getMovieData={this.getMovieData}
+              handleInput={this.handleInput}
+              handleSelectedMovie={this.handleSelectedMovie}
+              movieData={this.state.movieData}
+              nowPlaying={this.state.nowPlaying}
+              popularMovies={this.state.popularMovies}
+              movieDataFromDB={this.state.movieDataFromDB}
+              reviews={this.state.reviews}
+              handleUserFavorite={this.handleUserFavorite}
+              handleUserWatched={this.handleUserWatched}
+              handleUserWatchlist={this.handleUserWatchlist}
+
               />}
             >
             </Route>
@@ -310,6 +341,7 @@ class App extends React.Component {
           </Routes>
           <Footer />
         </Router>
+        </div>
       </>
     );
   }

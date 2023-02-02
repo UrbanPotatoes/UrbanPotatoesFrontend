@@ -8,7 +8,8 @@ import Comment from './Comment'
 import CommentForm from './CommentForm'
 
 
-const Comments = ({currentUserId}) => {
+
+const Comments = ({currentUserId, movieDataFromDB}) => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null)
   // {type: "replying", id: '1'}
@@ -53,6 +54,7 @@ const Comments = ({currentUserId}) => {
       setBackendComments(data);
     })
   }, [])
+  console.log(movieDataFromDB);
   return (
     <div className="comments">
       <h3 className='comments-title'>Comments</h3>
