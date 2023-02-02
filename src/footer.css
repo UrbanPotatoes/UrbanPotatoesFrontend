@@ -1,0 +1,21 @@
+
+
+.footerId {
+        display:flex;
+        margin: auto;
+        margin-bottom: 0px;
+        font-size: 6rem;
+}
+
+.footer {
+        bottom: 0;
+        width: 100%;
+        height: 4.5rem;
+        background-color: black;
+        margin-top: auto;
+}
+
+.footer-content {
+        color: aliceblue;
+        margin-right: 800px;
+}

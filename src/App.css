@@ -1,3 +1,9 @@
+
+
+.nav-link {
+  color: aliceblue
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #060708;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +38,70 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+
+:root {
+  --gray: #2d2929;
+  --slate: #8C8E8D;
+  --black: #000000;
+}
+
+body {
+  background-color: var(--gray);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: var(--slate);
+  color: var(--gray);
+  padding: 20px;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--black);
+  color: var(--gray);
+  border: none;
+  padding: 10px 20px;
+}
+
+/* .movieSliders {
+  width: 30%
+} */
+
+.profile-page-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-page-div .card {
+  width: 25%;
+  margin: 0px
+}
+
+.profile-page-div .row {
+  width: 75%;
+  display: block;
+  justify-content: space-around;
+
+}
+
+
+/* Hex: #B99C98
+RGB: (185, 156, 152)
+
+Hex: #8C8E8D
+RGB: (140, 142, 141)
+Hex: #A3A893
+RGB: (163, 168, 147) */
