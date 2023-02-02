@@ -1,0 +1,13 @@
+.newyorktimes {
+  display: flex;
+  justify-content: left;
+  border: 3px solid cornflowerblue;
+  background-color: aliceblue;
+
+}
+
+.nyt-picture {
+  margin-top: 5px;
+  max-height: 200px;
+  max-width: 500px;
+}
