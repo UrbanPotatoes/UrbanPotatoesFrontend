@@ -2,7 +2,9 @@ import React from 'react';
 import "./about.css";
 import Figure from "react-bootstrap/Figure";
 import img from "./assets/profile.png"
-
+import Dutch from "./assets/dutch.jpg"
+import Marlon from "./assets/Marlon.jpeg"
+import Yen from "./assets/Yen.png"
 
 class About extends React.Component {
 
@@ -17,7 +19,7 @@ class About extends React.Component {
                   width={171}
                   height={180}
                   alt="171x180"
-                  src={/Users/dutchfoy/projects/301-Projects/UrbanPotatoesFrontend/src/assets/T039KG69K-U04AQSDGXLZ-f2285c15089c-512.jpeg}
+                  src={Marlon}
                 />
                 <h2>Marlon Angulo Jr.</h2>
                 <ul>
@@ -37,7 +39,7 @@ class About extends React.Component {
                   width={171}
                   height={180}
                   alt="171x180"
-                  src={/Users/dutchfoy/projects/301-Projects/UrbanPotatoesFrontend/src/assets/03.png}
+                  src={Yen}
                 />
                 <h2>Yen Xiong Yuan</h2>
                 <ul>
@@ -97,7 +99,7 @@ class About extends React.Component {
                   width={171}
                   height={180}
                   alt="171x180"
-                  src={dutch.jpg}
+                  src={Dutch}
                 />
                 <h2>Dutch Foy</h2>
                 <ul>
