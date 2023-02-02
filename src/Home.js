@@ -3,8 +3,8 @@ import Movies from './Movies';
 import PopularMovies from './PopularMovies';
 import './Home.css'
 import MovieReviews from './MovieReviews';
-import 'reactjs-popup/dist/index.css';
-import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
+// import Popup from 'reactjs-popup';
 
 
 
@@ -33,9 +33,9 @@ class Home extends React.Component {
           </label>
         </form>
         <div className='title'>
-          <Popup trigger={<button> Trigger</button>} position="right center">
+          {/* <Popup trigger={<button> Trigger</button>} position="right center">
             <h2>Search Your Favorite Movie Listing and See What the Community is saying all about it over the latest critics</h2>
-          </Popup>
+          </Popup> */}
 
         </div>
         <MovieReviews
