@@ -12,12 +12,19 @@ class About extends React.Component {
       <>
         <h1>This is the about page</h1>
         <Figure>
-          <Figure.Image
-            width={171}
-            height={180}
-            alt="171x180"
-            src={img}
-          />
+            <div class="img-wrapper">
+                <Figure.Image
+                  width={171}
+                  height={180}
+                  alt="171x180"
+                  src={img}
+                />
+                <h2>Dutch Foy</h2>
+                <ul>
+                  <li><a href="jdutchfoy - Overview"><i class="fab fa-github"></i></a></li>
+                  
+                </ul>
+            </div>
           <Figure.Caption id='figCap'>
             Nulla vitae elit libero, a pharetra augue mollis interdum.
             Nulla vitae elit libero, a pharetra augue mollis interdum.
@@ -30,12 +37,19 @@ class About extends React.Component {
           </Figure.Caption>
         </Figure>
         <Figure>
-          <Figure.Image
-            width={171}
-            height={180}
-            alt="171x180"
-            src={img}
-          />
+            <div class="img-wrapper">
+                <Figure.Image
+                  width={171}
+                  height={180}
+                  alt="171x180"
+                  src={img}
+                />
+                <h2>Dutch Foy</h2>
+                <ul>
+                  <li><a href="jdutchfoy - Overview"><i class="fab fa-github"></i></a></li>
+                  
+                </ul>
+            </div>
           <Figure.Caption id='figCap'>
             Nulla vitae elit libero, a pharetra augue mollis interdum.
             Nulla vitae elit libero, a pharetra augue mollis interdum.
@@ -48,12 +62,19 @@ class About extends React.Component {
           </Figure.Caption>
         </Figure>
         <Figure>
-          <Figure.Image
-            width={171}
-            height={180}
-            alt="171x180"
-            src={img}
-          />
+            <div class="img-wrapper">
+                <Figure.Image
+                  width={171}
+                  height={180}
+                  alt="171x180"
+                  src={img}
+                />
+                <h2>Dutch Foy</h2>
+                <ul>
+                  <li><a href="jdutchfoy - Overview"><i class="fab fa-github"></i></a></li>
+                  
+                </ul>
+            </div>
           <Figure.Caption id='figCap'>
             Nulla vitae elit libero, a pharetra augue mollis interdum.
             Nulla vitae elit libero, a pharetra augue mollis interdum.
@@ -66,12 +87,19 @@ class About extends React.Component {
           </Figure.Caption>
         </Figure>
         <Figure>
-          <Figure.Image
-            width={171}
-            height={180}
-            alt="171x180"
-            src={img}
-          />
+            <div class="img-wrapper">
+                <Figure.Image
+                  width={171}
+                  height={180}
+                  alt="171x180"
+                  src={img}
+                />
+                <h2>Dutch Foy</h2>
+                <ul>
+                  <li><a href="jdutchfoy - Overview"><i class="fab fa-github"></i></a></li>
+                  
+                </ul>
+            </div>
           <Figure.Caption id='figCap'>
             Nulla vitae elit libero, a pharetra augue mollis interdum.
             Nulla vitae elit libero, a pharetra augue mollis interdum.
@@ -84,12 +112,19 @@ class About extends React.Component {
           </Figure.Caption>
         </Figure>
         <Figure>
-          <Figure.Image
-            width={171}
-            height={180}
-            alt="171x180"
-            src={img}
-          />
+            <div class="img-wrapper">
+                <Figure.Image
+                  width={171}
+                  height={180}
+                  alt="171x180"
+                  src={img}
+                />
+                <h2>Dutch Foy</h2>
+                <ul>
+                  <li><a href="jdutchfoy - Overview"><i class="fab fa-github"></i></a></li>
+                  
+                </ul>
+            </div>
           <Figure.Caption id='figCap'>
             Nulla vitae elit libero, a pharetra augue mollis interdum.
             Nulla vitae elit libero, a pharetra augue mollis interdum.
