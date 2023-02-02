@@ -28,7 +28,7 @@ class App extends React.Component {
       movie: '',
       movieData: [],
       comments: [],
-      user: [],
+      userEmail: 'joseph.j.davitt@gmail.com',
       userFavorites: [],
       userWatched: [],
       userWatchlist: [],
@@ -43,6 +43,31 @@ class App extends React.Component {
     this.setState({
       movieData: []
     })
+  }
+
+  handleProfile = () => {
+    let newUser = {
+      email: this.state.userEmail,
+      favoritelist: this.state.userFavorites,
+      watchlaterlist: this.state.userWatchlist,
+      watchedlist: this.state.userWatched,
+    }
+    console.log('new User from handleProfile >>>', newUser);
+    this.postUser(newUser);
+  }
+
+  postUser = async (userObj) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/user/${userObj.email}`
+      let createdUser = await axios.post(url, userObj);
+      this.setState({
+        user: createdUser.data
+      })
+
+    } catch (error) {
+      console.log(error.message);
+
+    }
   }
 
   handleUserFavorite = (movie) => {
@@ -167,6 +192,7 @@ class App extends React.Component {
         <Router>
           <Header 
           resetMovies={this.resetMovies}
+          handleProfile={this.handleProfile}
           />
           <Routes>
             <Route
