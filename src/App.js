@@ -29,9 +29,30 @@ class App extends React.Component {
       nowPlaying: [],
       popularMovies: [],
       movieDataFromDB: [],
-      selectedMovie: {}
+      selectedMovie: {},
+      reviews:[],
     }
   }
+
+
+  getMovieReviews = async () => {
+  
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/moviereview`
+      console.log(url);
+
+      let movieReviewData = await axios.get(url);
+      console.log('moviereviews',movieReviewData.data);
+
+      this.setState({
+        reviews: movieReviewData.data,
+      });
+    } catch (error) {
+      console.log(error.response)
+
+    }
+  }
+
 
 
 
@@ -95,7 +116,8 @@ class App extends React.Component {
 
   postMovie = async (movieObj) => {
     try {
-      let url = `${process.env.REACT_APP_SERVER}/movies/${movieObj.movieId}`
+      console.log(movieObj);
+      let url = `${process.env.REACT_APP_SERVER}/movies`
       let createdMovie = await axios.post(url, movieObj);
       this.setState({
         movieDataFromDB: createdMovie.data
@@ -109,11 +131,12 @@ class App extends React.Component {
 
   handleSelectedMovie = (movie) => {
 
-    this.postMovie(movie);
+    let myMovie = this.postMovie(movie);
+    console.log(myMovie);
 
-    // this.setState({
-    //   selectedMovie: movie
-    // })
+    this.setState({
+      movieDataFromDB: movie
+    })
 
   }
 
@@ -132,7 +155,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-
+        <div className='menu'>
         <Router>
           <Header />
           <Routes>
@@ -145,6 +168,8 @@ class App extends React.Component {
               movieData={this.state.movieData}
               nowPlaying={this.state.nowPlaying}
               popularMovies={this.state.popularMovies}
+              movieDataFromDB={this.state.movieDataFromDB}
+              reviews={this.state.reviews}
               />}
             >
             </Route>
@@ -170,7 +195,7 @@ class App extends React.Component {
           </Routes>
           <Footer />
         </Router>
-
+        </div>
       </>
     )
   }

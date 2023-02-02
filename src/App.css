@@ -1,3 +1,5 @@
+
+
 .nav-link {
   color: aliceblue
 }
@@ -44,7 +46,7 @@
 
 
 :root {
-  --gray: #B99C98;
+  --gray: #2d2929;
   --slate: #8C8E8D;
   --black: #000000;
 }

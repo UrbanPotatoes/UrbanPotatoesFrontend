@@ -10,11 +10,13 @@ class Footer extends React.Component {
 
     return (
       <>
-        <Navbar id='footerId' collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <div className='footer'>
+        <Navbar className='footerId' collapseOnSelect expand="lg" >
           <Navbar.Brand>
-            <p>&copy; 2023 Urban Potatoes</p>
+            <p className='footer-content'>&copy; 2023 Urban Potatoes</p>
           </Navbar.Brand>
         </Navbar>
+        </div>
       </>
     );
   }

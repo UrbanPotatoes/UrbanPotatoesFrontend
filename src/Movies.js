@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 class Movies extends React.Component {
 
   render() {
-
+    console.log(this.props.handleSelectedMovie)
     return (
       <>
         {this.props.movieData.map(movie => {
           return (
-            <Card style={{ width: '18rem' }}>
+            <Card className="moviecards"style={{ width: '18rem' }}>
               <Link to="/selectedmovie" className="nav-link" onClick={() => {this.props.handleSelectedMovie(movie)}}>
                 <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
               </Link>

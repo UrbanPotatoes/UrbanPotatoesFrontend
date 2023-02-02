@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet');
+
+.search-field{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 30px;
+  width: 400px;
+  margin-top: 10px;
+  border-color: #000;
+  color: black;
+  background: transparent;
+  border-radius: 25px;
+}
+
+::placeholder {
+  color: brown;
+  font-family: 'Mukta', sans-serif;
+  font-weight: 800;
+  text-align:justify;
+  margin-left: 10px;
+}
+
+.title {
+  font-weight: 400;
+  border: #000;
+}
+
+
+

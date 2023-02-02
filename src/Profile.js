@@ -17,9 +17,6 @@ class Profile extends React.Component {
           <Card.Img variant="top" src="https://via.placeholder.com/150" alt="this is the profile pic"/>
           <Card.Body>
             <Card.Title>USERNAME</Card.Title>
-            <Card.Text>
-              This is my profile
-            </Card.Text>
           </Card.Body>
         </Card>
 
