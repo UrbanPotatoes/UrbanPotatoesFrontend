@@ -13,10 +13,15 @@ import Home from './Home';
 import Profile from './Profile';
 import SelectedMovie from './SelectedMovie';
 import axios from 'axios';
+
 import Login from './Login';
 import Logout from './Logout';
 import Profileauth from './Profileauth';
 import { withAuth0 } from "@auth0/auth0-react";
+
+import SearchResults from './SearchResults';
+
+
 
 
 
@@ -29,12 +34,16 @@ class App extends React.Component {
       movieData: [],
       comments: [],
       user: [],
+      userFavorites: [],
+      userWatched: [],
+      userWatchlist: [],
       nowPlaying: [],
       popularMovies: [],
       movieDataFromDB: [],
       selectedMovie: {},
     };
   }
+
 
   async componentDidMount() {
     if (this.props.auth0.isAuthenticated) {
@@ -57,11 +66,35 @@ class App extends React.Component {
         movies: movieData.data,
       });
     }
+
+  resetMovies = () => {
+    this.setState({
+      movieData: []
+    })
+  }
+
+  handleUserFavorite = (movie) => {
+    this.setState({
+      userFavorites: [...this.state.userFavorites, movie]
+    })
+  }
+
+  handleUserWatched = (movie) => {
+    this.setState({
+      userWatched: [...this.state.userWatched, movie]
+    })
+  }
+
+  handleUserWatchlist = (movie) => {
+    this.setState({
+      userWatchlist: [...this.state.userWatchlist, movie]
+    })
   }
 
   getMovieData = async (e) => {
     e.preventDefault();
-    console.log("got the movies");
+    console.log('got the movies');
+  
 
     try {
       let url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`;
@@ -73,6 +106,8 @@ class App extends React.Component {
       this.setState({
         movieData: movieData.data,
       });
+
+
     } catch (error) {
       console.log(error.response);
     }
@@ -149,37 +184,62 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Header />
+
+          <Header 
+          resetMovies={this.resetMovies}
+          />
           <Login />
           <Logout />
           <Profileauth />
+         
           <Routes>
             <Route
-              exact
-              path="/"
-              element={
-                <Home
-                  getMovieData={this.getMovieData}
-                  handleInput={this.handleInput}
-                  handleSelectedMovie={this.handleSelectedMovie}
-                  movieData={this.state.movieData}
-                  nowPlaying={this.state.nowPlaying}
-                  popularMovies={this.state.popularMovies}
-                />
-              }
-            ></Route>
-            <Route exact path="/about" element={<About />}></Route>
-            <Route exact path="/profile" element={<Profile />}></Route>
+              exact path="/"
+              element={<Home 
+              getMovieData={this.getMovieData}
+              handleInput={this.handleInput}
+              handleSelectedMovie={this.handleSelectedMovie}
+              movieData={this.state.movieData}
+              nowPlaying={this.state.nowPlaying}
+              popularMovies={this.state.popularMovies}
+              handleUserFavorite={this.handleUserFavorite}
+              handleUserWatched={this.handleUserWatched}
+              handleUserWatchlist={this.handleUserWatchlist}
+              />}
+            >
+            </Route>
             <Route
-              exact
-              path="/selectedmovie"
-              element={
-                <SelectedMovie
-                  selectedMovie={this.state.selectedMovie}
-                  movieDataFromDB={this.state.movieDataFromDB}
-                />
-              }
-            ></Route>
+              exact path="/about"
+              element={<About />}
+            >
+            </Route>
+            <Route
+              exact path="/profile"
+              element={<Profile 
+              userFavorites={this.state.userFavorites}
+              userWatched={this.state.userWatched}
+              userWatchlist={this.state.userWatchlist}
+              />}
+            >
+            </Route>
+            <Route
+              exact path="/selectedmovie"
+              element={<SelectedMovie 
+              selectedMovie={this.state.selectedMovie}
+              movieDataFromDB={this.state.movieDataFromDB}
+              
+              />}
+            >
+            </Route>
+            <Route
+              exact path="/search"
+              element={<SearchResults 
+                handleSelectedMovie={this.handleSelectedMovie}
+                movieData={this.state.movieData}
+              />}
+            >
+            </Route>
+
           </Routes>
           <Footer />
         </Router>
