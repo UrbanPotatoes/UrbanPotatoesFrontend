@@ -1,6 +1,6 @@
 import React from 'react';
 import Movies from './Movies';
-import NowPlaying from './NowPlaying';
+// import NowPlaying from './NowPlaying';
 import PopularMovies from './PopularMovies';
 
 
@@ -8,6 +8,12 @@ import PopularMovies from './PopularMovies';
 
 class Home extends React.Component {
 
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.getMovieData();
+    this.props.history.push('/search/');
+  }
 
   render() {
 
@@ -26,16 +32,19 @@ class Home extends React.Component {
         nowPlaying={this.props.nowPlaying}
         handleSelectedMovie={this.props.handleSelectedMovie}
         /> */}
+        <Movies 
+        movieData={this.props.movieData} 
+        handleSelectedMovie={this.props.handleSelectedMovie}
+        handleUserFavorite={this.props.handleUserFavorite}
+        handleUserWatched={this.props.handleUserWatched}
+        handleUserWatchlist={this.props.handleUserWatchlist}
+        />
         <h2>Popular Movies</h2>
         <PopularMovies 
         popularMovies={this.props.popularMovies}
         handleSelectedMovie={this.props.handleSelectedMovie}
         />
 
-        <Movies 
-        movieData={this.props.movieData} 
-        handleSelectedMovie={this.props.handleSelectedMovie}
-        />
       </>
     )
   }

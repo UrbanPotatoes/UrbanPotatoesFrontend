@@ -13,6 +13,9 @@ import Home from './Home';
 import Profile from './Profile';
 import SelectedMovie from './SelectedMovie';
 import axios from 'axios';
+import SearchResults from './SearchResults';
+
+
 
 
 
@@ -26,6 +29,9 @@ class App extends React.Component {
       movieData: [],
       comments: [],
       user: [],
+      userFavorites: [],
+      userWatched: [],
+      userWatchlist: [],
       nowPlaying: [],
       popularMovies: [],
       movieDataFromDB: [],
@@ -33,11 +39,34 @@ class App extends React.Component {
     }
   }
 
+  resetMovies = () => {
+    this.setState({
+      movieData: []
+    })
+  }
 
+  handleUserFavorite = (movie) => {
+    this.setState({
+      userFavorites: [...this.state.userFavorites, movie]
+    })
+  }
+
+  handleUserWatched = (movie) => {
+    this.setState({
+      userWatched: [...this.state.userWatched, movie]
+    })
+  }
+
+  handleUserWatchlist = (movie) => {
+    this.setState({
+      userWatchlist: [...this.state.userWatchlist, movie]
+    })
+  }
 
   getMovieData = async (e) => {
     e.preventDefault();
     console.log('got the movies');
+  
 
     try {
       let url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`
@@ -49,6 +78,8 @@ class App extends React.Component {
       this.setState({
         movieData: movieData.data,
       });
+
+
     } catch (error) {
       console.log(error.response)
 
@@ -134,7 +165,9 @@ class App extends React.Component {
       <>
 
         <Router>
-          <Header />
+          <Header 
+          resetMovies={this.resetMovies}
+          />
           <Routes>
             <Route
               exact path="/"
@@ -145,6 +178,9 @@ class App extends React.Component {
               movieData={this.state.movieData}
               nowPlaying={this.state.nowPlaying}
               popularMovies={this.state.popularMovies}
+              handleUserFavorite={this.handleUserFavorite}
+              handleUserWatched={this.handleUserWatched}
+              handleUserWatchlist={this.handleUserWatchlist}
               />}
             >
             </Route>
@@ -155,7 +191,11 @@ class App extends React.Component {
             </Route>
             <Route
               exact path="/profile"
-              element={<Profile />}
+              element={<Profile 
+              userFavorites={this.state.userFavorites}
+              userWatched={this.state.userWatched}
+              userWatchlist={this.state.userWatchlist}
+              />}
             >
             </Route>
             <Route
@@ -164,6 +204,14 @@ class App extends React.Component {
               selectedMovie={this.state.selectedMovie}
               movieDataFromDB={this.state.movieDataFromDB}
               
+              />}
+            >
+            </Route>
+            <Route
+              exact path="/search"
+              element={<SearchResults 
+                handleSelectedMovie={this.handleSelectedMovie}
+                movieData={this.state.movieData}
               />}
             >
             </Route>

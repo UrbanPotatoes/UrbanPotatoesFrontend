@@ -10,7 +10,7 @@ class About extends React.Component {
 
     return (
       <>
-        <h1>This is the about page</h1>
+        <h1>About Us</h1>
         <Figure>
           <Figure.Image
             width={171}
