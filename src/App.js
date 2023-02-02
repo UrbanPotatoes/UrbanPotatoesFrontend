@@ -13,6 +13,10 @@ import Home from './Home';
 import Profile from './Profile';
 import SelectedMovie from './SelectedMovie';
 import axios from 'axios';
+import Login from './Login';
+import Logout from './Logout';
+import Profileauth from './Profileauth';
+
 
 
 
@@ -135,6 +139,9 @@ class App extends React.Component {
 
         <Router>
           <Header />
+          <Login />
+          <Logout />
+          <Profileauth />
           <Routes>
             <Route
               exact path="/"
