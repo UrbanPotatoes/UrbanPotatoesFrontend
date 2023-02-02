@@ -2,11 +2,12 @@ import { useState } from "react";
 
 const CommentForm = ({ handleSubmit, submitLabel, hasCancelButton = false, 
 initialText = '',
-handleCancel, }) => {
+handleCancel, sendUpdateComments }) => {
   const [text, setText] = useState(initialText);
   const isTextareaEmpty = text.length === 0;
   const onSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
+    sendUpdateComments(text);
     handleSubmit(text);
     setText("");
   };
