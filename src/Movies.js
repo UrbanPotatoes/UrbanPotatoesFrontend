@@ -21,9 +21,9 @@ class Movies extends React.Component {
                   {movie.title}
 
                 </Card.Title>
-                <Button variant="outline-light">❤️</Button>
-                <Button variant="outline-light">👀</Button>
-                <Button variant="outline-light">📝</Button>
+                <Button variant="outline-light" onClick={() => this.props.handleUserFavorite(movie)}>❤️</Button>
+                <Button variant="outline-light" onClick={() => this.props.handleUserWatched(movie)}>✔️</Button>
+                <Button variant="outline-light" onClick={() => this.props.handleUserWatchlist(movie)}>➕</Button>
 
               </Card.Body>
             </Card>

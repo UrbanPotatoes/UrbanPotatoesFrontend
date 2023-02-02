@@ -9,7 +9,9 @@ class About extends React.Component {
 
     return (
       <>
+
         <Figure classname="">
+
           <Figure.Image
             className="figimage"
             width={171}

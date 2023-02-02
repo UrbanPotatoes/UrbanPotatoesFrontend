@@ -14,25 +14,39 @@ import Profile from './Profile';
 import SelectedMovie from './SelectedMovie';
 import axios from 'axios';
 
+import Login from './Login';
+import Logout from './Logout';
+import Profileauth from './Profileauth';
+import { withAuth0 } from "@auth0/auth0-react";
+
+import SearchResults from './SearchResults';
+
+
+
+
 
 
 class App extends React.Component {
-
-
   constructor(props) {
     super(props);
     this.state = {
       movie: '',
       movieData: [],
       comments: [],
-      user: [],
+      user: {},
+      userFavorites: [],
+      userWatched: [],
+      userWatchlist: [],
       nowPlaying: [],
       popularMovies: [],
       movieDataFromDB: [],
       selectedMovie: {},
       reviews:[],
     }
-  }
+
+    };
+
+  
 
 
   getMovieReviews = async () => {
@@ -56,12 +70,100 @@ class App extends React.Component {
 
 
 
+  resetMovies = () => {
+    this.setState({
+      movieData: []
+    })
+  }
+
+  handleProfile = () => {
+    
+    this.postUser();
+  }
+
+  postUser = async () => {
+    if(this.props.auth0.isAuthenticated){
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      console.log(jwt);
+      let userObj = {
+        favoritelist: [],
+        watchlaterlist: [],
+        watchedlist: []
+      }
+      const config = {
+        headers: {"Authorization":`Bearer ${jwt}`},
+        method: "post",
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/user',
+        data: userObj
+      }
+      try {
+        
+        let createdUser = await axios(config);
+        this.setState({
+          user: createdUser.data
+        })
+  
+      } catch (error) {
+        console.log(error.message);
+  
+      }
+    }
+  }
+
+  handleUserFavorite = async (movie) => {
+    const user = {...this.state.user}
+    user.favoritelist.push(movie)
+    this.setState({
+      user: user
+    })
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/user/${user._id}`
+
+      await axios.put(url, user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  handleUserWatched = async (movie) => {
+    const user = {...this.state.user}
+    user.watchedlist.push(movie)
+    this.setState({
+      user: user
+    })
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/user/${user._id}`
+
+      await axios.put(url, user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  handleUserWatchlist = async (movie) => {
+    const user = {...this.state.user}
+    user.watchlaterlist.push(movie)
+    this.setState({
+      user: user
+    })
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/user/${user._id}`
+
+      await axios.put(url, user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   getMovieData = async (e) => {
     e.preventDefault();
     console.log('got the movies');
 
+
     try {
-      let url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`
+      let url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`;
       console.log(url);
 
       let movieData = await axios.get(url);
@@ -70,17 +172,18 @@ class App extends React.Component {
       this.setState({
         movieData: movieData.data,
       });
-    } catch (error) {
-      console.log(error.response)
 
+
+    } catch (error) {
+      console.log(error.response);
     }
-  }
+  };
 
   getNowPlaying = async () => {
-    console.log('got the movies');
+    console.log("got the movies");
 
     try {
-      let url = `${process.env.REACT_APP_SERVER}/getNow`
+      let url = `${process.env.REACT_APP_SERVER}/getNow`;
       console.log(url);
 
       let movieData = await axios.get(url);
@@ -90,16 +193,15 @@ class App extends React.Component {
         nowPlaying: movieData.data,
       });
     } catch (error) {
-      console.log(error.response)
-
+      console.log(error.response);
     }
-  }
+  };
 
   getPopularMovies = async () => {
-    console.log('got the movies');
+    console.log("got the movies");
 
     try {
-      let url = `${process.env.REACT_APP_SERVER}/getPopular`
+      let url = `${process.env.REACT_APP_SERVER}/getPopular`;
       console.log(url);
 
       let movieData = await axios.get(url);
@@ -109,25 +211,21 @@ class App extends React.Component {
         popularMovies: movieData.data,
       });
     } catch (error) {
-      console.log(error.response)
-
+      console.log(error.response);
     }
-  }
+  };
 
   postMovie = async (movieObj) => {
     try {
-      console.log(movieObj);
-      let url = `${process.env.REACT_APP_SERVER}/movies`
+      let url = `${process.env.REACT_APP_SERVER}/movies/${movieObj.movieId}`;
       let createdMovie = await axios.post(url, movieObj);
       this.setState({
-        movieDataFromDB: createdMovie.data
-      })
-
+        movieDataFromDB: createdMovie.data,
+      });
     } catch (error) {
       console.log(error.message);
-
     }
-  }
+  };
 
   handleSelectedMovie = (movie) => {
 
@@ -142,22 +240,55 @@ class App extends React.Component {
 
   handleInput = (e) => {
     this.setState({
-      movie: e.target.value
-    })
-  }
+      movie: e.target.value,
+    });
+  };
 
-  componentDidMount() {
+  async componentDidMount() {
+    setTimeout(()=>{
+      this.handleProfile()
+    },1000);
     this.getNowPlaying();
     this.getPopularMovies();
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      
+      const jwt = res.__raw;
+      
+      console.log("token: ", jwt);
+      
+      const config = {
+        headers: { Authorization: `Bearer ${jwt}` },
+        method: "get",
+        baseURL: process.env.REACT_APP_SERVER,
+        url: "/movies",
+      };
+      
+      let movieData = await axios(config);
+      
+      this.setState({
+        movies: movieData.data,
+        
+      });
+    }
   }
 
 
   render() {
+    console.log(this.state.user)
     return (
       <>
         <div className='menu'>
         <Router>
-          <Header />
+
+          <Header
+            resetMovies={this.resetMovies}
+            handleProfile={this.handleProfile}
+          />
+          <Login />
+          <Logout />
+          <Profileauth />
+
           <Routes>
             <Route
               exact path="/"
@@ -170,6 +301,10 @@ class App extends React.Component {
               popularMovies={this.state.popularMovies}
               movieDataFromDB={this.state.movieDataFromDB}
               reviews={this.state.reviews}
+              handleUserFavorite={this.handleUserFavorite}
+              handleUserWatched={this.handleUserWatched}
+              handleUserWatchlist={this.handleUserWatchlist}
+
               />}
             >
             </Route>
@@ -180,25 +315,37 @@ class App extends React.Component {
             </Route>
             <Route
               exact path="/profile"
-              element={<Profile />}
+              element={<Profile
+                user={this.state.user}
+              />}
             >
             </Route>
             <Route
               exact path="/selectedmovie"
-              element={<SelectedMovie 
-              selectedMovie={this.state.selectedMovie}
-              movieDataFromDB={this.state.movieDataFromDB}
-              
+              element={<SelectedMovie
+                selectedMovie={this.state.selectedMovie}
+                movieDataFromDB={this.state.movieDataFromDB}
+
               />}
             >
             </Route>
+            <Route
+              exact path="/search"
+              element={<SearchResults
+                handleSelectedMovie={this.handleSelectedMovie}
+                movieData={this.state.movieData}
+              />}
+            >
+            </Route>
+
           </Routes>
           <Footer />
         </Router>
         </div>
       </>
-    )
+    );
   }
 }
 
-export default App;
+
+export default withAuth0(App);
