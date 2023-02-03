@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  height: 100px;
 }
 .search-box {
   display: flex;
@@ -11,18 +12,19 @@
   margin: auto;
   height: 30px;
   width: 400px;
-  margin-top: 10px;
+  margin-top: 110px;
   border-color: #000;
   color: black;
   background: transparent;
   border-radius: 25px;
+  z-index: 50;
 }
 
 ::placeholder {
-  color: brown;
+  color: rgb(255, 255, 255);
+  text-align: center;
   font-family: 'Mukta', sans-serif;
   font-weight: 800;
-  text-align:justify;
   margin-left: 10px;
 }
 

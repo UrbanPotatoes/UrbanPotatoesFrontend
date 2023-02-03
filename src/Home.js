@@ -2,7 +2,7 @@ import React from 'react';
 import Movies from './Movies';
 import PopularMovies from './PopularMovies';
 import './Home.css'
-import MovieReviews from './MovieReviews';
+
 // import 'reactjs-popup/dist/index.css';
 // import Popup from 'reactjs-popup';
 
@@ -38,10 +38,10 @@ class Home extends React.Component {
           </Popup> */}
 
         </div>
-        <MovieReviews
-          reviews={this.props.reviews} />
+        {/* <MovieReviews
+          reviews={this.props.reviews} /> */}
 
-
+        
         <Movies
           movieData={this.props.movieData}
           handleSelectedMovie={this.props.handleSelectedMovie}
@@ -49,11 +49,12 @@ class Home extends React.Component {
           handleUserWatched={this.props.handleUserWatched}
           handleUserWatchlist={this.props.handleUserWatchlist}
         />
-
+       
         <PopularMovies
           popularMovies={this.props.popularMovies}
           handleSelectedMovie={this.props.handleSelectedMovie}
         />
+         <h3>Popular Movies</h3>
 
 
       </>
