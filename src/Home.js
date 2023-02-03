@@ -54,7 +54,7 @@ class Home extends React.Component {
           popularMovies={this.props.popularMovies}
           handleSelectedMovie={this.props.handleSelectedMovie}
         />
-         <h3>Popular Movies</h3>
+         
 
 
       </>
