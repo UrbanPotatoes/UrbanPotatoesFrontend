@@ -1,0 +1,17 @@
+
+
+.cards {
+  display: flex;
+  margin-top: 200px;
+  border-radius: 25px;
+  width: 80%;
+}
+.comments {
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: white solid;
+  max-height: 70%;
+}
+.commentform {
+  max-width: 80%;
+}

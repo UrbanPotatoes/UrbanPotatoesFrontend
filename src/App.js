@@ -18,6 +18,7 @@ import axios from 'axios';
 // import Logout from './Logout';
 // import Profileauth from './Profileauth';
 import { withAuth0 } from "@auth0/auth0-react";
+import {createComment } from './api.js'
 
 import SearchResults from './SearchResults';
 
@@ -49,29 +50,14 @@ class App extends React.Component {
   
 
 
-  getMovieReviews = async () => {
-  
-    try {
-      let url = `${process.env.REACT_APP_SERVER}/moviereview`
-      console.log(url);
-
-      let movieReviewData = await axios.get(url);
-      console.log('moviereviews',movieReviewData.data);
-
-      this.setState({
-        reviews: movieReviewData.data,
-      });
-    } catch (error) {
-      console.log(error.response)
-
-    }
-  }
 
   updateComments = async (comment) => {
     console.log(comment);
     let newMovieObject ={...this.state.movieDataFromDB};
-    newMovieObject.comment.push(comment)
-    console.log(newMovieObject);
+    let newComment = await createComment(comment)
+    //re assign newcomment.username = this.props.auth0.user.name
+    newMovieObject.comment.push(newComment);
+    console.log('newcomment',newMovieObject);
     try {
       // let newMovieObject ={...this.state.selectedMovie,comment:[...this.state.selectedMovie.comment,comment] }
       console.log('newmovieObect',newMovieObject)

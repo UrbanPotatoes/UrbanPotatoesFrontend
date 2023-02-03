@@ -1,5 +1,6 @@
 
 import CommentForm from "./CommentForm"
+import '../selectedmovie.css'
 
 
 const Comment = ({ comment, replies, currentUserId, deleteComment, updateComment, addComment, activeComment, sendUpdateComment, setActiveComment, parentId = null, }) => {

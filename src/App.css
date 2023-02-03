@@ -52,7 +52,8 @@
 }
 
 body {
-  background-color: var(--gray);
+  background-image: url('./assets/My project-2.jpg');
+  /* background-color: var(--gray); */
   color: var(--black);
   font-family: Arial, sans-serif;
 }

@@ -4,7 +4,7 @@ import { getComments as getCommentsApi,
    createComment as createCommentApi,
     deleteComment as deleteCommentApi,
     updateComment as updateCommentApi} from '../api'
-import Comment from './Comment'
+    import Comment from './Comment'   
 import CommentForm from './CommentForm'
 
 
@@ -12,10 +12,11 @@ import CommentForm from './CommentForm'
 const Comments = ({currentUserId, movieDataFromDB, sendUpdateComments}) => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null)
-  // {type: "replying", id: '1'}
-  const rootComments = backendComments.filter(
-    (backendComments) => backendComments.parentId === null)
+
+  const rootComments = backendComments?.filter(
+    (backendComments) => backendComments?.parentId === null)
   console.log('backendcomments', backendComments);
+
   const getReplies = commentId => {
     return backendComments.filter(backendComment => backendComment.parentId === commentId).sort((a,b)=>
     new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
@@ -50,10 +51,11 @@ const Comments = ({currentUserId, movieDataFromDB, sendUpdateComments}) => {
   }
 
   useEffect(() => {
-    getCommentsApi().then(data => {
+    console.log('looking for u',movieDataFromDB)
+    getCommentsApi(movieDataFromDB).then(data => {
       setBackendComments(data);
     })
-  }, [])
+  })
   console.log(movieDataFromDB);
   return (
     <div className="comments">
@@ -61,7 +63,7 @@ const Comments = ({currentUserId, movieDataFromDB, sendUpdateComments}) => {
       <div className='comment-form-title'>Write Comment</div>
       <CommentForm submitLabel="Post" handleSubmit={addComment} sendUpdateComments={sendUpdateComments}/>
       <div className="comments-container">
-        {rootComments.map((rootComment) => (
+        {rootComments?.map((rootComment) => (
           <Comment 
             key={rootComment.id} 
             comment={rootComment} 
