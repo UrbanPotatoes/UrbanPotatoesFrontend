@@ -14,17 +14,17 @@ class PopularMovies extends React.Component {
           {this.props.popularMovies.map(movie => {
             return (
               <Carousel.Item className='carousel.item'>
+                <Carousel.Caption className='carousel-caption'>
+                  {/* <h3 style={{color: 'white'}}>Popular Movies</h3> */}
+                </Carousel.Caption>
                 <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                   <img
                     className="carousel-pictures"
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster}`}
                     alt="First slide"
                   />
-
                 </Link>
-                <Carousel.Caption className='carousel-caption'>
-                  <h3 style={{color: 'white'}}>{movie.description}</h3>
-                </Carousel.Caption>
+                
               </Carousel.Item>
             )
           }

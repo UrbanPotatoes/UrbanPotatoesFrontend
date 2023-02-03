@@ -1,18 +1,21 @@
-
-
 .footerId {
-        display:flex;
+        display: flex;
         margin: auto;
         margin-bottom: 0px;
         font-size: 6rem;
 }
 
-.footer {
+.navbarfooter {
         bottom: 0;
         width: 100%;
-        height: 4.5rem;
+        /* position: fixed; */
+        height: 3rem;
         background-color: black;
-        margin-top: auto;
+        -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+        
+
 }
 
 .footer-content {

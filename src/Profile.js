@@ -1,12 +1,12 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import "./profile.css";
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 // import Profileauth from './Profileauth';
 
 
@@ -35,24 +35,28 @@ class Profile extends React.Component {
             <Row>
               {/* <Col sm={4}> */}
               <ListGroup horizontal>
-                <ListGroup.Item action href="#link1">
+                <ListGroup.Item className="profile-list" action href="#link1">
                   Favorite Movies
                 </ListGroup.Item>
-                <ListGroup.Item action href="#link2">
+                <ListGroup.Item className="profile-list" action href="#link2">
                   Watched Movies
                 </ListGroup.Item>
-                <ListGroup.Item action href="#link3">
+                <ListGroup.Item className="profile-list" action href="#link3">
                   Watch Later
                 </ListGroup.Item>
               </ListGroup>
               {/* </Col> */}
-              <Col sm={8}>
+
+              {/* <Col sm={8}> */}
+              <Row>
+                
                 <Tab.Content>
                   <Tab.Pane eventKey="#link1">
+                  <div className="movie-list-pane">
                     {this.props.user.favoritelist.map(movie => {
                       return (
 
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -60,7 +64,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -68,11 +72,13 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                  </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="#link2">
+                  <div className="movie-list-pane">
                     {this.props.user.watchedlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -80,7 +86,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -88,11 +94,13 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="#link3">
+                  <div className="movie-list-pane">
                     {this.props.user.watchlaterlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -100,7 +108,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -108,9 +116,12 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
-              </Col>
+                
+                </Row>
+              {/* </Col> */}
             </Row>
           </Tab.Container>
         </div>
