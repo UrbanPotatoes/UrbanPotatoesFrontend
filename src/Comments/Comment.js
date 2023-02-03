@@ -22,7 +22,7 @@ const Comment = ({ comment, replies, currentUserId, deleteComment, updateComment
   return (
     <div key={comment.id} className="comment">
       <div className='comment-image-container'>
-        <img src={require("../assets/lady.jpg")} alt=""></img>
+        <img src={require("../assets/blankp.png")} alt=""></img>
       </div>
       <div className="comment-right-part">
         <div className="comment-cotent">

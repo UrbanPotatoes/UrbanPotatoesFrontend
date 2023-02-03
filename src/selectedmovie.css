@@ -36,6 +36,11 @@
   /* max-width: max-content; */
 }
 
+.comment-right-part {
+  width: 700px;
+
+}
+
 .comments form button {
   color: rgb(255, 0, 0);
   border-radius: 10px;
