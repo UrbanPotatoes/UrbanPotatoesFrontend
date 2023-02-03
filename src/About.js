@@ -68,14 +68,7 @@ class About extends React.Component {
             src={require('./assets/dutch.jpg')}
           />
           <Figure.Caption id='figCap'>
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
+          My name is Dutch (yes it's my real name), I am a Full-stack software development student and a US NAVY Veteran. I am looking for a company that offers both an innovative and challenging environment, while fostering, and cultivating my personal growth and development ensuring a history of successful project delivery.
           </Figure.Caption>
         </Figure>
       </>
