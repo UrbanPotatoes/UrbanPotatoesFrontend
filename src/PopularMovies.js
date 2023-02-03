@@ -15,7 +15,7 @@ class PopularMovies extends React.Component {
             return (
               <Carousel.Item className='carousel.item'>
                 <Carousel.Caption className='carousel-caption'>
-                  <h3 style={{color: 'white'}}>Popular Movies</h3>
+                  {/* <h3 style={{color: 'white'}}>Popular Movies</h3> */}
                 </Carousel.Caption>
                 <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                   <img

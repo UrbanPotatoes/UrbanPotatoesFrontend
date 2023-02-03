@@ -5,11 +5,12 @@
 .navbarheader{
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   height: 3rem;
   top: 0;
-  width: 100%;
+  width: 90%;
   background-color: transparent;
+  margin: 10px;
 }
 
 .home-button {

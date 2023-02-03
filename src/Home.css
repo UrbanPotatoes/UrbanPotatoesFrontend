@@ -12,12 +12,12 @@
   margin: auto;
   height: 30px;
   width: 400px;
-  margin-top: 110px;
+  margin-top: 50px;
   border-color: #000;
   color: black;
   background: transparent;
   border-radius: 25px;
-  z-index: 50;
+  /* z-index: 50; */
 }
 
 ::placeholder {
