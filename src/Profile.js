@@ -35,13 +35,13 @@ class Profile extends React.Component {
             <Row>
               {/* <Col sm={4}> */}
               <ListGroup horizontal>
-                <ListGroup.Item action href="#link1">
+                <ListGroup.Item className="profile-list" action href="#link1">
                   Favorite Movies
                 </ListGroup.Item>
-                <ListGroup.Item action href="#link2">
+                <ListGroup.Item className="profile-list" action href="#link2">
                   Watched Movies
                 </ListGroup.Item>
-                <ListGroup.Item action href="#link3">
+                <ListGroup.Item className="profile-list" action href="#link3">
                   Watch Later
                 </ListGroup.Item>
               </ListGroup>
@@ -56,7 +56,7 @@ class Profile extends React.Component {
                     {this.props.user.favoritelist.map(movie => {
                       return (
 
-                        <Card style={{ width: '6rem', margin: '10px' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -78,7 +78,7 @@ class Profile extends React.Component {
                   <div className="movie-list-pane">
                     {this.props.user.watchedlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem', margin: '10px' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -100,7 +100,7 @@ class Profile extends React.Component {
                   <div className="movie-list-pane">
                     {this.props.user.watchlaterlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem', margin: '10px' }}>
+                        <Card style={{ width: '9rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
