@@ -1,12 +1,12 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import "./profile.css";
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 // import Profileauth from './Profileauth';
 
 
