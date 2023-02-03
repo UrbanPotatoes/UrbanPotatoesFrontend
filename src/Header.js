@@ -15,7 +15,7 @@ class Header extends React.Component {
     return (
       <>
         <Navbar collapseOnSelect className="navbarheader"expand="lg">
-          <Navbar.Brand ><Link to="/" onClick={this.props.resetMovies} className="nav-link"><img className="logo" src={require('./assets/logo3.gif')} alt="logo"></img></Link></Navbar.Brand>
+          <Navbar.Brand ><Link to="/" onClick={this.props.resetMovies} className="nav-link"><img className="logo" src={require('./assets/logo5.gif')} alt="logo"></img></Link></Navbar.Brand>
           {/* <NavItem><Link to="/" onClick={this.props.resetMovies} className="nav-link"><img className="home-button"src={require('./assets/home.png')} alt=''></img></Link></NavItem> */}
           <NavItem><Link to="/about" className="nav-link"><img className="aboutus-button"src={require('./assets/aboutus.png')} alt=''></img></Link></NavItem>
           <NavItem id='profile'><Link to="/profile" className="nav-link"><img className="profile-button"src={require('./assets/profile1.png')} alt=''></img></Link>

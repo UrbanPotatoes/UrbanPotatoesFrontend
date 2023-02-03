@@ -60,7 +60,7 @@ const Comments = ({currentUserId, movieDataFromDB, sendUpdateComments}) => {
   return (
     <div className="comments">
       <h3 className='comments-title'>Comments</h3>
-      <div className='comment-form-title'>Write Comment</div>
+      {/* <div className='comment-form-title'>Write Comment</div> */}
       <CommentForm submitLabel="Post" handleSubmit={addComment} sendUpdateComments={sendUpdateComments}/>
       <div className="comments-container">
         {rootComments?.map((rootComment) => (
