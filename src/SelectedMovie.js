@@ -31,6 +31,7 @@ class SelectedMovie extends React.Component {
         <Comments 
             movieDataFromDB={this.props.movieDataFromDB}
             sendUpdateComments={this.props.sendUpdateComments}
+            currentUserId="1"
             />
       </>
     )
