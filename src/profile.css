@@ -20,3 +20,15 @@ justify-content: center;
 margin: auto;
 background-color:black
 }
+
+/* .tab-content {
+  display: flex;
+  flex-direction: row;
+} */
+
+.movie-list-pane {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}

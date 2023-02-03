@@ -46,13 +46,17 @@ class Profile extends React.Component {
                 </ListGroup.Item>
               </ListGroup>
               {/* </Col> */}
-              <Col sm={8}>
+
+              {/* <Col sm={8}> */}
+              <Row>
+                
                 <Tab.Content>
                   <Tab.Pane eventKey="#link1">
+                  <div className="movie-list-pane">
                     {this.props.user.favoritelist.map(movie => {
                       return (
 
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '6rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -60,7 +64,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -68,11 +72,13 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                  </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="#link2">
+                  <div className="movie-list-pane">
                     {this.props.user.watchedlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '6rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -80,7 +86,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -88,11 +94,13 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="#link3">
+                  <div className="movie-list-pane">
                     {this.props.user.watchlaterlist.map(movie => {
                       return (
-                        <Card style={{ width: '6rem' }}>
+                        <Card style={{ width: '6rem', margin: '10px' }}>
                           <Link to="/selectedmovie" className="nav-link" onClick={() => { this.props.handleSelectedMovie(movie) }}>
                             <Card.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} />
                           </Link>
@@ -100,7 +108,7 @@ class Profile extends React.Component {
                             <Card.Title style={{ fontSize: '10px' }}>
                               {movie.title}
 
-                              <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button>
+                              {/* <Button variant="outline-light" style={{ fontSize: '10px' }}>❌</Button> */}
                             </Card.Title>
 
 
@@ -108,9 +116,12 @@ class Profile extends React.Component {
                         </Card>
                       )
                     })}
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
-              </Col>
+                
+                </Row>
+              {/* </Col> */}
             </Row>
           </Tab.Container>
         </div>

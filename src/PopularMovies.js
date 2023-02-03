@@ -22,9 +22,9 @@ class PopularMovies extends React.Component {
                   />
 
                 </Link>
-                <Carousel.Caption className='carousel-caption'>
+                {/* <Carousel.Caption className='carousel-caption'>
                   <h3 style={{color: 'white'}}>{movie.description}</h3>
-                </Carousel.Caption>
+                </Carousel.Caption> */}
               </Carousel.Item>
             )
           }
